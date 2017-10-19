@@ -8,8 +8,18 @@ var port = 8080;
 var nodemailer = require('nodemailer');
 
 app.get("/", function (req, res) {
-    console.log("GET req arrived")
-        res.send("hello world")
+    console.log("GET req arrived");
+    //
+    transporter.sendMail(mailOptions, function (err, info) {
+   if(err)
+     console.log(err)
+   else
+     console.log(info);
+});
+    
+    
+    //
+        res.send("email sent!")
 });
 
 app.use(methodOverride());
@@ -23,8 +33,8 @@ app.listen(port);
 var transporter = nodemailer.createTransport({
  service: 'gmail',
  auth: {
-        user: 'youremail@address.com',
-        pass: 'yourpassword'
+        user: 'rangohoney1@gmail.com',
+        pass: 'Peyton2001'
     }
 });
 
