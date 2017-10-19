@@ -30,13 +30,20 @@ app.use(errorHandler());
 console.log("Simple static server listening at http://" + hostname + ":" + port);
 app.listen(port);
 
+
+
+
 var transporter = nodemailer.createTransport({
- service: 'gmail',
- auth: {
+  host: 'smtp.gmail.com',
+  port: 587,
+  secure: false, // secure:true for port 465, secure:false for port 587
+  auth: {
         user: 'rangohoney1@gmail.com',
         pass: 'Peyton2001'
     }
 });
+
+
 
 const mailOptions = {
   from: 'rangohoney1@gmail.com', // sender address
